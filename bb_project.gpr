@@ -4,7 +4,182 @@ project BB_Project is
 
    for Source_Dirs use ("src");
    for Object_Dir use "obj";
-   for Main use ("free_fall_test.adb");
+   type Object_Dir_Scheme_Type is
+      (".", "nested");
+   Object_Dir : Object_Dir_Scheme_Type := external ("Object_Dir");
+   type Arch_Type is
+      ("x86_64", "i686", "armhf", "aarch64", "auto");
+   Arch : Arch_Type := external ("arch");
+   type Os_Type is
+      ("Windows", "Windows_NT", "Linux", "UNIX", "OSX", "FreeBSD", "auto");
+   Sc_Os : Os_Type := external ("SC_OS");
+   type Development_Type is
+      ("Debug", "Release", "Profile");
+   Development : Development_Type := external ("Development");
+   type Legacy_Type is
+      ("Ada95", "Ada2005", "Ada2012");
+   Legacy : Legacy_Type := external ("Legacy");
+   type Atomic_Access_Mode is
+      ("Pragma-atomic", "GCC-built-ins", "GCC-long-offsets", "auto");
+   Atomic_Access : Atomic_Access_Mode := external ("Atomic_Access");
+   type Library_Type_Type is
+      ("relocatable", "static", "static-pic");
+   Library_Type : Library_Type_Type := external ("LIBRARY_TYPE");
+   type Tasking_Mode is
+      ("Multiple", "Single");
+   Tasking : Tasking_Mode := external ("Tasking");
+   type Object_Tracing_Mode is
+      ("Off", "On");
+   Traced_Objects : Object_Tracing_Mode := external ("Traced_objects");
+   type Target_Type is
+      ("Windows", "Windows_NT", "Linux", "Unix", "OSX", "FreeBSD");
+   Prj_Target : Target_Type := external ("PRJ_TARGET");
+   type Build_Type is
+      ("Debug", "Release", "Profile");
+   Prj_Build : Build_Type := external ("PRJ_BUILD");
+
+   case Object_Dir is
+
+      when "." =>
+
+         case Arch is
+
+            when "x86_64" =>
+
+               case Sc_Os is
+
+                  when "Windows" =>
+
+                     case Development is
+
+                        when "Debug" =>
+
+                           case Legacy is
+
+                              when "Ada95" =>
+                                 for Main use ("free_fall_test.adb");
+
+                              when "Ada2005" =>
+                                 for Main use ("free_fall_test.adb");
+
+                              when "Ada2012" =>
+
+                                 case Atomic_Access is
+
+                                    when "Pragma-atomic" =>
+                                       for Main use ("free_fall_test.adb");
+
+                                    when "GCC-built-ins" =>
+                                       for Main use ("free_fall_test.adb");
+
+                                    when "GCC-long-offsets" =>
+                                       for Main use ("free_fall_test.adb");
+
+                                    when "auto" =>
+
+                                       case Library_Type is
+
+                                          when "relocatable" =>
+                                             for Main use ("free_fall_test.adb");
+
+                                          when "static" =>
+
+                                             case Tasking is
+
+                                                when "Multiple" =>
+
+                                                   case Traced_Objects is
+
+                                                      when "Off" =>
+
+                                                         case Prj_Target is
+
+                                                            when "Windows" =>
+                                                               for Main use ("free_fall_test.adb");
+
+                                                            when "Windows_NT" =>
+                                                               for Main use ("free_fall_test.adb");
+
+                                                            when "Linux" =>
+                                                               for Main use ("free_fall_test.adb");
+
+                                                            when "Unix" =>
+
+                                                               case Prj_Build is
+
+                                                                  when "Debug" =>
+                                                                     for Main use ("free_fall_test.adb", "travel_times.adb");
+
+                                                                  when "Release" =>
+                                                                     for Main use ("free_fall_test.adb");
+
+                                                                  when "Profile" =>
+                                                                     for Main use ("free_fall_test.adb");
+                                                               end case;
+
+                                                            when "OSX" =>
+                                                               for Main use ("free_fall_test.adb");
+
+                                                            when "FreeBSD" =>
+                                                               for Main use ("free_fall_test.adb");
+                                                         end case;
+
+                                                      when "On" =>
+                                                         for Main use ("free_fall_test.adb");
+                                                   end case;
+
+                                                when "Single" =>
+                                                   for Main use ("free_fall_test.adb");
+                                             end case;
+
+                                          when "static-pic" =>
+                                             for Main use ("free_fall_test.adb");
+                                       end case;
+                                 end case;
+                           end case;
+
+                        when "Release" =>
+                           for Main use ("free_fall_test.adb");
+
+                        when "Profile" =>
+                           for Main use ("free_fall_test.adb");
+                     end case;
+
+                  when "Windows_NT" =>
+                     for Main use ("free_fall_test.adb");
+
+                  when "Linux" =>
+                     for Main use ("free_fall_test.adb");
+
+                  when "UNIX" =>
+                     for Main use ("free_fall_test.adb");
+
+                  when "OSX" =>
+                     for Main use ("free_fall_test.adb");
+
+                  when "FreeBSD" =>
+                     for Main use ("free_fall_test.adb");
+
+                  when "auto" =>
+                     for Main use ("free_fall_test.adb");
+               end case;
+
+            when "i686" =>
+               for Main use ("free_fall_test.adb");
+
+            when "armhf" =>
+               for Main use ("free_fall_test.adb");
+
+            when "aarch64" =>
+               for Main use ("free_fall_test.adb");
+
+            when "auto" =>
+               for Main use ("free_fall_test.adb");
+         end case;
+
+      when "nested" =>
+         for Main use ("free_fall_test.adb");
+   end case;
 
 end BB_Project;
 

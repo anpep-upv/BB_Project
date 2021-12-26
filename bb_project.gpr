@@ -1,0 +1,10 @@
+with "../bb_sim/ball_on_beam_simulator.gpr";
+
+project BB_Project is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("free_fall_test.adb");
+
+end BB_Project;
+

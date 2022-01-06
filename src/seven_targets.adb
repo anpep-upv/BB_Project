@@ -6,10 +6,9 @@ with BB_PD_Control; use BB_PD_Control;
 with Ada.Real_Time; use Ada.Real_Time;
 
 procedure Seven_Targets is
-   Targets : constant array (1 .. 7) of Position :=
-     (1 => Max_Position / 4.0,  2 => Min_Position / 4.0,
-      3 => Max_Position / 2.0,  4 => Min_Position / 2.0,
-      5 => Max_Position - 10.0, 6 => Min_Position + 10.0, 7 => 0.0);
+   Targets : constant array (1 .. 8) of Position :=
+   ( 1 | 3 | 5 | 7 => Max_Position - 10.0,
+     2 | 4 | 6 | 8 => Min_Position + 10.0);
    
    task Controller
      with Priority => System.Priority'Last - 5
@@ -19,7 +18,7 @@ procedure Seven_Targets is
    end Controller;
    
    task body Controller is
-      Period : Time_Span := Microseconds(250000);
+      Period : Time_Span := Microseconds(62500);
       Next : Time := Clock;
       
       Ang : Angle;
@@ -40,14 +39,14 @@ procedure Seven_Targets is
       end loop;
    end Controller;
 begin
-   Move_BB_To(Vesta);
-   Configure_PD(1.2, 4.0);
+   Move_BB_To(Earth);
+   Configure_PD(0.08, 0.8);
    Controller.Start;
    
    for I in Targets'Range loop
       Set_Target_Position(Targets(I));
       GUI_Setpoint(Targets(I));
-      delay 10.0;
+      delay 3.0;
    end loop;
    
    Controller.Finish;

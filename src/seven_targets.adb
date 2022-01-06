@@ -19,7 +19,7 @@ procedure Seven_Targets is
    end Controller;
    
    task body Controller is
-      Period : Time_Span := Microseconds(62500);
+      Period : Time_Span := Microseconds(250000);
       Next : Time := Clock;
       
       Ang : Angle;
@@ -40,13 +40,14 @@ procedure Seven_Targets is
       end loop;
    end Controller;
 begin
-   Configure_PD(0.2, 0.35);
+   Move_BB_To(Vesta);
+   Configure_PD(1.2, 4.0);
    Controller.Start;
    
    for I in Targets'Range loop
       Set_Target_Position(Targets(I));
       GUI_Setpoint(Targets(I));
-      delay 6.0;
+      delay 10.0;
    end loop;
    
    Controller.Finish;

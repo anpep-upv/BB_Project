@@ -108,7 +108,7 @@ project BB_Project is
                                                                case Prj_Build is
 
                                                                   when "Debug" =>
-                                                                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                                     for Main use ("seven_targets", "free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                                   when "Release" =>
                                                                      for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");

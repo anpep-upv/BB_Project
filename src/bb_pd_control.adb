@@ -3,7 +3,7 @@ with BB; use BB;
 package body BB_PD_Control is
    Last_Error : Float;
 
-   Kp, Kd : Float;
+   Kp, Kd : Float := 0.0;
    Target : Position;
 
    procedure Configure_PD (Kp, Kd : in Float;

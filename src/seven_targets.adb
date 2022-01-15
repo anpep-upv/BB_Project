@@ -18,12 +18,13 @@ procedure Seven_Targets is
    end Controller;
    
    task body Controller is
-      Period : Time_Span := Microseconds(62500);
-      Next : Time := Clock;
-      
+      Period : constant Time_Span := Microseconds(62500);
+      Next : Time;
       Ang : Angle;
    begin
       accept Start;
+      Next := Clock;
+      
       loop
          select
             accept Finish;

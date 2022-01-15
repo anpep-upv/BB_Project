@@ -43,7 +43,7 @@ begin
       Put (SSO'Image & ":");
       Put (Item => Float (T_Delta), Aft => 7, Exp => 0);
       Put (" s." & HT & "Error =");
-      Put (Item => Float (Error), Aft => 7, Exp => 0);
+      Put (Item => Float (Error) / 1000.0, Aft => 7, Exp => 0);
       Put_Line (" ms.");
    end loop;
 end Travel_Times;

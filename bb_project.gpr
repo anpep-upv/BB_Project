@@ -57,30 +57,30 @@ project BB_Project is
                            case Legacy is
 
                               when "Ada95" =>
-                                 for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                 for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                               when "Ada2005" =>
-                                 for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                 for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                               when "Ada2012" =>
 
                                  case Atomic_Access is
 
                                     when "Pragma-atomic" =>
-                                       for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                       for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                     when "GCC-built-ins" =>
-                                       for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                       for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                     when "GCC-long-offsets" =>
-                                       for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                       for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                     when "auto" =>
 
                                        case Library_Type is
 
                                           when "relocatable" =>
-                                             for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                             for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                           when "static" =>
 
@@ -95,90 +95,90 @@ project BB_Project is
                                                          case Prj_Target is
 
                                                             when "Windows" =>
-                                                               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                             when "Windows_NT" =>
-                                                               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                             when "Linux" =>
-                                                               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                             when "Unix" =>
 
                                                                case Prj_Build is
 
                                                                   when "Debug" =>
-                                                                     for Main use ("seven_targets", "free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                                   when "Release" =>
-                                                                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                                   when "Profile" =>
-                                                                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                                                                end case;
 
                                                             when "OSX" =>
-                                                               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                                                             when "FreeBSD" =>
-                                                               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                                                          end case;
 
                                                       when "On" =>
-                                                         for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                         for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                                                    end case;
 
                                                 when "Single" =>
-                                                   for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                                   for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                                              end case;
 
                                           when "static-pic" =>
-                                             for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                                             for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                                        end case;
                                  end case;
                            end case;
 
                         when "Release" =>
-                           for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                           for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                         when "Profile" =>
-                           for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                           for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                      end case;
 
                   when "Windows_NT" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                   when "Linux" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                   when "UNIX" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                   when "OSX" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                   when "FreeBSD" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
                   when "auto" =>
-                     for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+                     for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
                end case;
 
             when "i686" =>
-               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
             when "armhf" =>
-               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
             when "aarch64" =>
-               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
 
             when "auto" =>
-               for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+               for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
          end case;
 
       when "nested" =>
-         for Main use ("free_fall_test.adb", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
+         for Main use ("adc_test.adb", "free_fall_test.adb", "seven_targets", "test_bb_pd_control.adb", "travel_times.adb", "travel_times_opt");
    end case;
 
 end BB_Project;

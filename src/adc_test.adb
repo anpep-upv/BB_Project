@@ -6,10 +6,13 @@
 ---------------------------------------------
 with BB, BB.ADC;
 use BB, BB.ADC;
+with ADC_Handler;
+use ADC_Handler;
 with CSV_Logs;          use CSV_Logs;
 with Ada.Text_IO;       use Ada.Text_IO;
 with Ada.Float_Text_IO; use Ada.Float_Text_IO;
 with Ada.Real_Time;     use Ada.Real_Time;
+with Ada.Synchronous_Task_Control; use Ada.Synchronous_Task_Control;
 
 procedure ADC_Test is
 
@@ -117,15 +120,37 @@ procedure ADC_Test is
       Pos_mm     : Position;      --  Position corresponding to Conversion
       Latency    : Duration;      --  Latency of conversion
 
+       Clock_Initial : Time;            --  Used to measure latency of conversion
+
    begin
       Open_Log_Session ("interrupt_test.csv");
       Log_Text ("ADC_Conv, Pos_mm, Latency");
 
-      --  Completar
+      -- Register interrupt handler
+      Attach_ADC_Handler(EOC_Handler'Access);
 
       for I in 1 .. 100 loop
 
-         Write_CR (Get_CR (Trigger => True));
+         -- Trigger conversion with interrupts disabled
+         Write_CR (Get_CR (Trigger => True, Interrupt_Enable => True));
+
+         -- Wait until the conversion is done by polling DR
+         Clock_Initial := Clock;
+
+         -- Wait for EOC Suspension Object
+         Suspend_Until_True(End_Of_Conversion);
+         Set_False(End_Of_Conversion);
+
+         -- Calculate ADC latency
+         Latency := To_Duration (Clock - Clock_Initial);
+
+         -- Obtain first 12 MSBs
+         Conversion := Read_DR and (2**12 - 1);
+
+         -- Convert value from ADC to mm
+         Pos_mm := ADC_To_Position (Conversion);
+
+         -- Write the conversion result
          Log_Data ((Float (Conversion), Pos_mm, Float (Latency)));
 
       end loop;
@@ -143,8 +168,8 @@ begin
    Put_Line ("POLLING Test");
    Polling_Test;
 
-   --Put_Line ("INTERRUPT Test");
-   --Interrupt_Test;
+   Put_Line ("INTERRUPT Test");
+   Interrupt_Test;
 
    Put_Line ("End of ADC Test");
 

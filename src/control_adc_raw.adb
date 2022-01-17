@@ -57,7 +57,6 @@ begin
 
    -- Register interrupt handler
    Attach_ADC_Handler (EOC_Handler'Access);
-
    Move_BB_To (Earth);
    Configure_PD (Kp => 2.0, Kd => 35.0, Target => 0.0);
    GUI_Setpoint (0.0);

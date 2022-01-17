@@ -44,4 +44,12 @@ package body IIR_Filters is
               0.5 * Float (ADC_Sample)));
    end Filter_50;
 
+   --------------------
+   --  Filter_Dummy  --
+   --------------------
+
+   function Filter_Dummy (ADC_Sample : in ADC_Register) return Position is
+   begin
+      return ADC_To_Position(ADC_Sample);
+   end Filter_Dummy;
 end IIR_Filters;
